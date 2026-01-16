@@ -16,19 +16,19 @@ const app = express();
 
 app.use(express.json());   // to accept json data
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:5173"],
+  origin: ["http://localhost:3000", "http://localhost:5173", "https://webrtc-project-frontend.vercel.app", process.env.FRONTEND_URL].filter(Boolean),
   credentials: true
 }));
 
 app.get("/", (req, res) => {
-  res.send(`API Running on ${process.env.PORT}`);
+  res.send(`API Running on Use Port ${PORT}`);
 });
 
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 const server = app.listen(
   PORT,
@@ -39,7 +39,7 @@ const server = app.listen(
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: ["http://localhost:3000", "http://localhost:5173"],
+    origin: ["http://localhost:3000", "http://localhost:5173", "https://webrtc-project-frontend.vercel.app", process.env.FRONTEND_URL].filter(Boolean),
     // credentials: true,
   },
 });
