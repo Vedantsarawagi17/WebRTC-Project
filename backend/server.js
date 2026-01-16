@@ -16,7 +16,7 @@ const app = express();
 
 app.use(express.json());   // to accept json data
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:5173"],
+  origin: ["http://localhost:3000", "http://localhost:5173", "https://webrtc-project-frontend.vercel.app"],
   credentials: true
 }));
 
@@ -39,7 +39,7 @@ const server = app.listen(
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: ["http://localhost:3000", "http://localhost:5173"],
+    origin: ["http://localhost:3000", "http://localhost:5173", "https://webrtc-project-frontend.vercel.app"],
     // credentials: true,
   },
 });
