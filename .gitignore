@@ -1,0 +1,66 @@
+# -------------------- #
+# NODE / NPM
+# -------------------- #
+# Dependency directory
+node_modules
+# Mac OS-related files
+.DS_Store
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# -------------------- #
+# BUILD ARTIFACTS
+# -------------------- #
+# Vite/React Frontend Build Output
+/dist
+/build
+.temp
+.cache
+
+# Vite configuration file generated temp file
+/node_modules/.vite-temp
+
+# TypeScript cache files
+*.tsbuildinfo
+
+# -------------------- #
+# ENVIRONMENT VARIABLES & SECRETS
+# -------------------- #
+# IMPORTANT: DO NOT COMMIT SECRETS OR KEYS!
+# This includes all .env files (local and production secrets)
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# -------------------- #
+# IDE / EDITOR FILES
+# -------------------- #
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+# IntelliJ/Webstorm
+.idea/
+
+# -------------------- #
+# DOCKER (If used)
+# -------------------- #
+# Build context and volume mounts
+/docker-compose.yml.local
+/volume/
+
+# -------------------- #
+# OPTIONAL: Test/Coverage Reports
+# -------------------- #
+/coverage
+/test-results
