@@ -16,7 +16,7 @@ const app = express();
 
 app.use(express.json());   // to accept json data
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:5173", "https://webrtc-project-frontend.vercel.app", process.env.FRONTEND_URL].filter(Boolean),
+  origin: ["http://localhost:3000", "http://localhost:5173", "https://webrtc-project-gilt.vercel.app", process.env.FRONTEND_URL].filter(Boolean),
   credentials: true
 }));
 
