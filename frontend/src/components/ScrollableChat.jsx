@@ -1,4 +1,4 @@
-import ScrollableFeed from "react-scrollable-feed";
+import { useEffect, useRef } from "react";
 import {
   isLastMessage,
   isSameSender,
@@ -9,9 +9,14 @@ import { ChatState } from "../context/ChatProvider";
 
 export const ScrollableChat = ({ messages }) => {
   const { user } = ChatState();
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   return (
-    <ScrollableFeed className="scrollbar-hide">
+    <div className="overflow-y-auto overflow-x-hidden h-full scrollbar-hide">
       {messages &&
         messages.map((m, i) => (
           <div className="flex" key={m._id}>
@@ -46,6 +51,7 @@ export const ScrollableChat = ({ messages }) => {
             </span>
           </div>
         ))}
-    </ScrollableFeed>
+      <div ref={bottomRef} />
+    </div>
   );
 };
