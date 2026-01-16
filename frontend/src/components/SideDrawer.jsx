@@ -4,8 +4,7 @@ import axios from "axios";
 import { ChatLoading } from "./ChatLoading";
 import { toast } from "react-toastify";
 import { ProfileModal } from "./ProfileModal";
-import NotificationBadge from "react-notification-badge";
-import { Effect } from "react-notification-badge";
+
 import { getSender } from "../config/ChatLogics";
 import { UserListItem } from "./UserListItem";
 import { ChatState } from "../context/ChatProvider";
@@ -98,7 +97,11 @@ export function SideDrawer() {
               onClick={() => setIsNotificationOpen(!isNotificationOpen)}
               className="p-2 relative hover:bg-gray-100 rounded-full"
             >
-              <NotificationBadge count={notification.length} effect={Effect.SCALE} />
+              {notification.length > 0 && (
+                <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/4 -translate-y-1/4 bg-red-600 rounded-full">
+                  {notification.length}
+                </span>
+              )}
               <i className="fas fa-bell text-xl"></i>
             </button>
             {isNotificationOpen && (
