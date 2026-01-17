@@ -88,7 +88,7 @@ io.on("connection", (socket) => {
     socket.emit("connected");
   });
   
-  // Chat Room Logic
+  // Chat Room Logic , This is like entering a Conference Room. Everyone in that room can hear each other.
   socket.on("join chat", (room) => {
     socket.join(room);
     console.log("User Joined Room: " + room);
@@ -131,6 +131,7 @@ io.on("connection", (socket) => {
   });
 
   // ICE Candidates help peers find the best path to connect directly
+  // Shortest path possible for a connection 
   socket.on("iceCandidate", (data) => {
       io.to(data.to).emit("iceCandidate", data.candidate);
   });

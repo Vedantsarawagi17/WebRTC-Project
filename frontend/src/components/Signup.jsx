@@ -15,9 +15,7 @@ export const Signup = () => {
   // picLoading: Boolean to show a loading state while the image is uploading. 
   // what is pic loading it ia inbuilt function or what ??
 
-
-
-  const history = useNavigate();
+  const navigate = useNavigate();
   const { setUser } = ChatState();
 
   const handleClick = () => setShow(!show);
@@ -74,11 +72,10 @@ export const Signup = () => {
       const config = { headers: { "Content-type": "application/json" } };
       const { data } = await axios.post("/api/user", { name, email, password, pic }, config);
       
-      toast.success("Registration Successful");
       setUser(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
       setPicLoading(false);
-      history("/chats");
+      navigate("/chats");
     } catch (error) {
       toast.error(error.response?.data?.message || "Error Occurred!");
       setPicLoading(false);

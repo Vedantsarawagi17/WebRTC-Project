@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { VideoState } from "../context/VideoProvider";
 import { FaPhone, FaPhoneSlash } from "react-icons/fa";
 

@@ -11,7 +11,7 @@ export const Login = () => {
   const [loading, setLoading] = useState(false);
   //loading: Disables the button while a request is being processed to prevent double-clicks.
 
-  const history = useNavigate();
+  const navigate = useNavigate();
   const { setUser } = ChatState();
 
   const handleClick = () => setShow(!show);
@@ -29,14 +29,12 @@ export const Login = () => {
       const config = { headers: { "Content-type": "application/json" } };
       const { data } = await axios.post("/api/user/login", { email, password }, config);
 
-      toast.success("Login Successful");
       setUser(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-      history("/chats");
+      navigate("/chats");
     } catch (error) { 
-      // why not toastify alert method ??
-      toast.error(error.response?.data?.message || "Error Occurred!");
+      toast.alert(error.response?.data?.message || "Error Occurred!");
       setLoading(false);
     }
   };

@@ -6,11 +6,13 @@ import { toast } from "react-toastify";
 import { ProfileModal } from "./ProfileModal";
 import { ScrollableChat } from "./ScrollableChat";
 import Lottie from "lottie-react";
-import animationData from "../animations/typing.json";
 import { UpdateGroupChatModal } from "./UpdateGroupChatModal";
 import { ChatState } from "../context/ChatProvider";
 import { VideoState } from "../context/VideoProvider"; // Import VideoState
 import { FaVideo } from "react-icons/fa";
+
+// It contains the mathematical data to render the "Three Bouncing Dots" animation that appears when someone is typing in your chat.
+import animationData from "../animations/typing.json";
 
 export const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [messages, setMessages] = useState([]);

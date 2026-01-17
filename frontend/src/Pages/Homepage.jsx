@@ -4,13 +4,13 @@ import { Login } from "../components/Login";
 import { Signup } from "../components/Signup";
 
 export function Homepage() {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("login");
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    if (user) history("/chats");
-  }, [history]);
+    if (user) navigate("/chats");
+  }, [navigate]);
 
   return (
     // Container
@@ -18,7 +18,7 @@ export function Homepage() {
       {/* Box for Title */}
       <div className="flex justify-center p-3 bg-white w-full mt-10 mb-4 rounded-lg border">
         <h1 className="text-4xl font-sans text-center">
-          Chat-Web Application
+          WebRTC-Chat Application
         </h1>
       </div>
       {/* Box for Auth Forms */}
