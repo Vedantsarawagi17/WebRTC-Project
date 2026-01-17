@@ -94,6 +94,7 @@ export const Signup = () => {
           placeholder="Enter Your Name"
           autoComplete="name"
           onChange={(e) => setName(e.target.value)}
+          required
         />
       </div>
 
@@ -106,6 +107,7 @@ export const Signup = () => {
           placeholder="Enter Your Email Address"
           autoComplete="email"
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
       </div>
 
@@ -119,10 +121,11 @@ export const Signup = () => {
             placeholder="Enter Password"
             autoComplete="new-password"
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
           <button
             type="button"
-            className="absolute right-2 top-1.5 px-2 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-gray-500 hover:text-black"
             onClick={handleClick}
           >
             {show ? "Hide" : "Show"}
@@ -140,10 +143,11 @@ export const Signup = () => {
             placeholder="Confirm Password"
             autoComplete="new-password"
             onChange={(e) => setConfirmpassword(e.target.value)}
+            required
           />
           <button
             type="button"
-            className="absolute right-2 top-1.5 px-2 py-1 text-xs bg-gray-100 rounded hover:bg-gray-200"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-gray-500 hover:text-black"
             onClick={handleClick}
           >
             {show ? "Hide" : "Show"}

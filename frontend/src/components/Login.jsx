@@ -54,6 +54,7 @@ export const Login = () => {
           autoComplete="email"
           placeholder="Enter Your Email Address"
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
       </div>
 
@@ -70,10 +71,11 @@ export const Login = () => {
             type={show ? "text" : "password"}
             autoComplete="current-password"
             placeholder="Enter password"
+            required
           />
           <button
             type="button"
-            className="absolute right-2 top-1.5 px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded text-gray-600 transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-gray-500 hover:text-black"
             onClick={handleClick}
           >
             {show ? "Hide" : "Show"}
